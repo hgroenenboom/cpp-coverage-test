@@ -4,7 +4,7 @@
 
 Remove-Item -Recurse *.exe
 
-g++ main.cpp --coverage -g -O0
+g++ main.cpp helper.cpp --coverage -g -O0
 
 ./a.exe
 
