@@ -5,9 +5,14 @@
 cd $PSScriptRoot
 git clean -dXf
 
-g++ main.cpp helper.cpp --coverage -g -O0
+New-Item -Type Directory $PSScriptRoot/build -Force | Out-Null
+cd $PSScriptRoot/build
+cmake ../ -G "Unix Makefiles"
+make
 
-./a.exe
+./GcovTest.exe
+
+cd ..
 
 gcovr -r . --output coverage.txt
 gcovr -r . --json-summary --output coverage.json

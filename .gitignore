@@ -9,3 +9,6 @@
 
 # gcovr
 coverage*
+
+# CMake
+build/
