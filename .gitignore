@@ -1,1 +1,4 @@
 *.exe
+
+# g++ --coverage
+*.gcno
