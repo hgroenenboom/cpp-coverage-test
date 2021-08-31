@@ -2,3 +2,10 @@
 
 # g++ --coverage
 *.gcno
+*.gcda
+
+# gcov -m
+*.gcov
+
+# gcovr
+coverage*

@@ -2,4 +2,6 @@
 
 g++ main.cpp --coverage -g -O0
 
+./a.exe
+
 gcov main.cpp -m
