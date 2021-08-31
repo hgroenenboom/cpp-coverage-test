@@ -20,8 +20,4 @@ gcovr -r . --json-summary --output coverage.json
 $json = Get-Content coverage.json | ConvertFrom-Json
 ConvertTo-Json -depth 100 $json | Out-File coverage.json
 
-Write-Host $json.line_percent
-if($json.line_percent -lt 50)
-{
-	Write-Error "Coverage of $($json.line_percent)% is not enough!"
-}
+Write-Host "Coverage: $($json.line_percent)%"
