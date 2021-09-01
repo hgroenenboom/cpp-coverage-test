@@ -12,3 +12,6 @@ coverage*
 
 # CMake
 build/
+
+# C++ Coverall github repo
+cpp-coveralls
