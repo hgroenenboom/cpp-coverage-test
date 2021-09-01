@@ -15,11 +15,6 @@ pool:
 steps:
 - powershell: run-coveralls-coverage.ps1
   workingDirectory: $(Build.SourcesDirectory)
-  displayName: Upload coverage report to Coveralls 
-  failOnStderr: false 
-  errorActionPreference: 'stop'
-  ignoreLASTEXITCODE: false 
-  inputs:
-    arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
+  displayName: Upload coverage report to Coveralls
   env:
     CoverallsToken: $(CoverallsToken)
