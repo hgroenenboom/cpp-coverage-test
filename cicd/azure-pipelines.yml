@@ -19,6 +19,7 @@ steps:
   failOnStderr: false 
   errorActionPreference: 'stop'
   ignoreLASTEXITCODE: false 
-  arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
+  inputs:
+    arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
   env:
     CoverallsToken: $(CoverallsToken)
