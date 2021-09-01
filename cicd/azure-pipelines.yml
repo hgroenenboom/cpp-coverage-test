@@ -3,6 +3,9 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+- group: "Secrets"
+
 trigger:
 - main
 
@@ -10,10 +13,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- powershell: run-coveralls-coverage.ps1
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: Upload coverage report to Coveralls 
+  failOnStderr: false 
+  errorActionPreference: 'stop'
+  ignoreLASTEXITCODE: false 
+  arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
+  env:
+    CoverallsToken: $(CoverallsToken)
