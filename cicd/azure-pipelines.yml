@@ -16,9 +16,8 @@ steps:
 - powershell: 
   workingDirectory: $(Build.SourcesDirectory)
   displayName: Upload coverage report to Coveralls
-  inputs:
-    targetType: 'filePath'
-    filePath: run-coveralls-coverage.ps1
-    arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
+  targetType: 'filePath'
+  filePath: run-coveralls-coverage.ps1
+  arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
   env:
     CoverallsToken: $(CoverallsToken)
