@@ -1,3 +1,11 @@
+# Supported platforms:
+# - Windows
+#
+# Prerequisites:
+# - g++ (MinGW on windows, with g++ and gcov added to PATH)
+# - powershell (core)
+#
+# Notes:
 # https://gcc.gnu.org/onlinedocs/gcc/Invoking-Gcov.html#Invoking-Gcov
 
 cd $PSScriptRoot

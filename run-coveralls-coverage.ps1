@@ -2,12 +2,18 @@ param(
     $COVERALLS_REPO_TOKEN
 )
 
-# https://gcovr.com/en/stable/guide.html#the-gcovr-command
-# pip install gcovr
-# Add 'C:\Users\harol.DESKTOP-P3APK3S\AppData\Roaming\Python\Python37\Scripts' to path
+# Supported platforms:
+# - Windows
+# - Linux
+#
+# Prerequisites:
+# - g++ (MinGW on windows, with g++ and gcov added to PATH)
+# - powershell (core)
+# - git
+# - coveralls account, with repository and repository token (free account with public repository is fine)
 
 Set-Location $PSScriptRoot
-# git clean -dXf
+git clean -dXf
 
 Write-Host "--- Cloning and installing cpp-coveralls"
 git clone https://github.com/eddyxu/cpp-coveralls

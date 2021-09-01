@@ -1,6 +1,14 @@
-# https://gcovr.com/en/stable/guide.html#the-gcovr-command
-# pip install gcovr
-# Add 'C:\Users\harol.DESKTOP-P3APK3S\AppData\Roaming\Python\Python37\Scripts' to path
+# Supported platforms:
+# - Windows
+#
+# Prerequisites:
+# - g++ (MinGW on windows, with g++ and gcov added to PATH)
+# - powershell (core)
+# - cmake
+# - gcovr
+# 	https://gcovr.com/en/stable/guide.html#the-gcovr-command
+# 	`pip install gcovr`
+# 	Windows: Add '<ApplicationData>/Python/Python37/Scripts' to path
 
 cd $PSScriptRoot
 git clean -dXf
