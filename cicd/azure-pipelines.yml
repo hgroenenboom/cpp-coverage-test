@@ -13,11 +13,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- powershell: 
-  workingDirectory: $(Build.SourcesDirectory)
+- task: PowerShell@2
+  inputs:
+    workingDirectory: $(Build.SourcesDirectory)
+    targetType: 'filePath'
+    filePath: run-coveralls-coverage.ps1
+    arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
   displayName: Upload coverage report to Coveralls
-  targetType: 'filePath'
-  filePath: run-coveralls-coverage.ps1
-  arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
   env:
     CoverallsToken: $(CoverallsToken)
