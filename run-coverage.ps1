@@ -22,4 +22,4 @@ else
     ./a.exe
 }
 
-gcov main.cpp helper.cpp -m
+gcov main.cpp helper.cpp
