@@ -9,7 +9,7 @@
 # 	`pip install gcovr`
 # 	Windows: Add '<ApplicationData>/Python/Python37/Scripts' to path
 
-cd $PSScriptRoot
+Set-Location $PSScriptRoot
 git clean -dXf
 
 g++ main.cpp helper.cpp --coverage -g -O0

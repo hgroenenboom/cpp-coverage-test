@@ -17,13 +17,13 @@ git clean -dXf
 
 Write-Host "--- Cloning and installing cpp-coveralls"
 git clone https://github.com/eddyxu/cpp-coveralls
-pip install --user cpp-coveralls
+pip3 install --user cpp-coveralls
 
 Write-Host "--- Building program"
 g++ main.cpp helper.cpp --coverage -g -O0
 
 Write-Host "--- Executing program to obtain coverage information"
-if($IsLinux)
+if($IsLinux -or $IsMacOS)
 {
     ./a.out
 }

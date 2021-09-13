@@ -10,17 +10,24 @@
 # 	`pip install gcovr`
 # 	Windows: Add '<ApplicationData>/Python/Python37/Scripts' to path
 
-cd $PSScriptRoot
+Set-Location $PSScriptRoot
 git clean -dXf
 
 New-Item -Type Directory $PSScriptRoot/build -Force | Out-Null
-cd $PSScriptRoot/build
+Set-Location $PSScriptRoot/build
 cmake ../ -G "Unix Makefiles"
 make
 
-./GcovTest.exe
+if($IsLinux -or $IsMacOS)
+{
+    ./GcovTest.out
+}
+else 
+{
+    ./GcovTest.exe
+}
 
-cd ..
+Set-Location ..
 
 gcovr -r . --output coverage.txt
 gcovr -r . --json-summary --output coverage.json
