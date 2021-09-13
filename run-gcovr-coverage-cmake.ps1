@@ -20,7 +20,7 @@ make
 
 if($IsLinux -or $IsMacOS)
 {
-    ./GcovTest.out
+    ./GcovTest
 }
 else 
 {
