@@ -17,7 +17,7 @@ git clean -dXf
 
 Write-Host "--- Cloning and installing cpp-coveralls"
 git clone https://github.com/eddyxu/cpp-coveralls
-pip3 install --user cpp-coveralls
+pip3 install cpp-coveralls
 
 Write-Host "--- Building program"
 g++ main.cpp helper.cpp --coverage -g -O0
