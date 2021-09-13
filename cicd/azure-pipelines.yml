@@ -9,18 +9,13 @@ variables:
 trigger:
 - main
 
-pool:
-  name: Default
-  demands:
-  - Platform -equals Windows
-
-steps:
-- task: PowerShell@2
-  inputs:
-    workingDirectory: $(Build.SourcesDirectory)
-    targetType: 'filePath'
-    filePath: run-coveralls-coverage.ps1
-    arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
-  displayName: Upload coverage report to Coveralls
-  env:
-    CoverallsToken: $(CoverallsToken)
+stages:
+  - stage: Checking Coverage
+    displayName: Build
+    jobs:
+      - template: ./check-coverage.yml
+        parameters:
+          Platform: Windows
+      - template: ./check-coverage.yml
+        parameters:
+          Platform: Mac

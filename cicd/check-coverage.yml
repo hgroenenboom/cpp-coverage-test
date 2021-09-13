@@ -1,0 +1,22 @@
+parameters:
+- name: Platform
+  type: string
+
+jobs:
+- job: '${{ parameters.Platform }}_Code_coverage'
+  displayName: '${{ parameters.Platform }} - Check Codecoverage'
+  pool:
+    name: Default
+    demands:
+    - Platform -equals ${{ parameters.Platform }}
+      
+  steps:
+  - task: PowerShell@2
+    inputs:
+      workingDirectory: $(Build.SourcesDirectory)
+      targetType: 'filePath'
+      filePath: run-coveralls-coverage.ps1
+      arguments: -COVERALLS_REPO_TOKEN $env:CoverallsToken
+    displayName: Upload coverage report to Coveralls
+    env:
+      CoverallsToken: $(CoverallsToken)
