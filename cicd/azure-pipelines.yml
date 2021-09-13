@@ -10,7 +10,7 @@ trigger:
 - main
 
 stages:
-  - stage: Checking Coverage
+  - stage: Checking_Coverage
     displayName: Build
     jobs:
       - template: ./check-coverage.yml
