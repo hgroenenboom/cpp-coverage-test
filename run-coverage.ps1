@@ -8,11 +8,18 @@
 # Notes:
 # https://gcc.gnu.org/onlinedocs/gcc/Invoking-Gcov.html#Invoking-Gcov
 
-cd $PSScriptRoot
+Set-Location $PSScriptRoot
 git clean -dXf
 
 g++ main.cpp helper.cpp --coverage -g -O0
 
-./a.exe
+if($IsLinux -or $IsMacOS)
+{
+    ./a.out
+}
+else 
+{
+    ./a.exe
+}
 
-gcov main.cpp helper.cpp -m
+gcov main.cpp helper.cpp
